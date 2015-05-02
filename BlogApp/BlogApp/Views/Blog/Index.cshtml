@@ -1,0 +1,20 @@
+﻿@model IEnumerable<BlogApp.Models.Post>
+
+@Html.ActionLink("New Post", "Create")
+
+
+@foreach (var post in this.Model)
+{
+    <div class="post">
+        <h2>@Html.ActionLink(post.Title, "Details", new {id=post.Id})</h2>
+        <p>
+            @post.Summary
+        </p>
+        <div>
+            <i>Posted by @post.AuthorName on @post.DateCreated.ToLongDateString()</i>
+        </div>
+    </div>
+}
+
+
+
